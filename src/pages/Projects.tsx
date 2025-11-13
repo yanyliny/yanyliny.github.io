@@ -5,6 +5,7 @@ export default function Projects() {
       status: 'In Revision',
       venue: 'Droplet',
       year: '2025',
+      link: 'https://www.researchgate.net/profile/Yanjun-Lin-7/publication/392521031_Acoustic-Driven_Surface_Cleaning_with_Millimeter-Sized_Bubbles_at_Translational_Resonance/links/6846d7838a76251f22ec6c19/Acoustic-Driven-Surface-Cleaning-with-Millimeter-Sized-Bubbles-at-Translational-Resonance.pdf',
       laySummary:
         'We found a sweet spot in how you shake millimeter-sized bubbles so they scrub surfaces much more effectively without needing harsh cavitation.',
       technicalSummary: (
@@ -317,7 +318,19 @@ export default function Projects() {
                       </span>
                     </div>
                   </div>
-                  <p className="text-sm font-light text-gray-500 tracking-wide">{project.venue}</p>
+                  <div className="flex items-center justify-between gap-4">
+                    <p className="text-sm font-light text-gray-500 tracking-wide">{project.venue}</p>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-amber-700 hover:bg-amber-800 text-white text-xs font-light tracking-wide uppercase transition-colors duration-300"
+                      >
+                        View Paper →
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 {/* Content */}
