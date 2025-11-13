@@ -25,9 +25,6 @@ export default function Happenings() {
             Happenings
           </h1>
           <div className="gold-accent mb-6 mx-auto max-w-md"></div>
-          <p className="text-lg text-gray-600 font-light">
-            Updates, experiments, and current work
-          </p>
         </div>
       </div>
 
