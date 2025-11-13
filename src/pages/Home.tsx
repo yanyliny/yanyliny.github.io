@@ -5,9 +5,10 @@ export default function Home() {
     <div className="max-w-3xl mx-auto">
       <div className="text-center mb-12">
         <h1 className="text-5xl font-bold text-gray-900 mb-4">Yan Jun Lin</h1>
-        <p className="text-xl text-gray-600 italic">
+        <p className="text-xl text-gray-600 italic mb-2">
           Physics, medicine, and ethics, stitched together.
         </p>
+        <p className="text-sm text-gray-500">Cornell University</p>
       </div>
 
       <div className="prose prose-lg max-w-none mb-12">
