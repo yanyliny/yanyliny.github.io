@@ -73,7 +73,7 @@ export default function Home() {
 
       {/* Description */}
       <div className="max-w-3xl mx-auto mb-20 fade-in-warm" style={{animationDelay: '0.2s'}}>
-        <div className="premium-glass p-10 rounded-sm hover-lift rotating-border">
+        <div className="premium-glass p-10 rounded-sm hover-lift">
           <p className="text-lg leading-relaxed text-gray-800 text-center font-light">
             My research spans experimental fluid mechanics, medical ethics, and orthopaedic outcomes,
             exploring everything from acoustic bubble dynamics to transplant allocation frameworks.
