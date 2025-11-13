@@ -10,28 +10,37 @@ export default function Layout({ children }: LayoutProps) {
   const navItems = [
     { path: '/', label: 'Home' },
     { path: '/projects', label: 'Projects' },
-    { path: '/blog', label: 'Blog' },
     { path: '/philarchive', label: 'PhilArchive' },
-    { path: '/about-us', label: 'About Us' },
+    { path: '/happenings', label: 'Happenings' },
   ]
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <nav className="bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex space-x-8">
+    <div className="min-h-screen flex flex-col relative">
+      {/* Subtle background pattern */}
+      <div className="fixed inset-0 -z-10 opacity-[0.03]" style={{
+        backgroundImage: `radial-gradient(circle at 1px 1px, rgb(0 0 0) 1px, transparent 0)`,
+        backgroundSize: '40px 40px'
+      }}></div>
+
+      {/* Navigation */}
+      <nav className="glass sticky top-0 z-50 border-b border-white/20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-center items-center h-20">
+            <div className="flex space-x-12">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
+                  className={`group relative inline-flex items-center px-1 pt-1 text-sm font-light tracking-widest uppercase transition-all duration-300 ${
                     location.pathname === item.path
-                      ? 'border-blue-600 text-gray-900'
-                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                      ? 'text-gray-900'
+                      : 'text-gray-500 hover:text-gray-900'
                   }`}
                 >
                   {item.label}
+                  <span className={`absolute -bottom-px left-0 h-px bg-gray-900 transition-all duration-300 ${
+                    location.pathname === item.path ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}></span>
                 </Link>
               ))}
             </div>
@@ -39,17 +48,22 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </nav>
 
+      {/* Main Content */}
       <main className="flex-grow">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           {children}
         </div>
       </main>
 
-      <footer className="bg-white border-t border-gray-200 mt-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <p className="text-center text-gray-500 text-sm">
-            © {new Date().getFullYear()} Yan Jun Lin. All rights reserved.
-          </p>
+      {/* Footer */}
+      <footer className="glass border-t border-white/20 mt-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="text-center">
+            <div className="elegant-divider mb-6 mx-auto max-w-xs"></div>
+            <p className="text-sm text-gray-500 font-light tracking-wider">
+              © {new Date().getFullYear()} Yan Jun Lin. All rights reserved.
+            </p>
+          </div>
         </div>
       </footer>
     </div>

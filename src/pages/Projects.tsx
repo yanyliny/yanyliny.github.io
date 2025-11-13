@@ -2,9 +2,9 @@ export default function Projects() {
   const projects = [
     {
       title: 'Acoustic-Driven Surface Cleaning with Millimeter-Sized Bubbles at Translational Resonance',
-      status: 'Accepted',
+      status: 'In Revision',
       venue: 'Droplet',
-      year: '2024',
+      year: '2025',
       laySummary:
         'We found a sweet spot in how you shake millimeter-sized bubbles so they scrub surfaces much more effectively without needing harsh cavitation.',
       technicalSummary: (
@@ -41,63 +41,10 @@ export default function Projects() {
       ),
     },
     {
-      title: 'Harm-Threshold Utilitarianism: Exploring an Ethical Framework for Organ Transplant Allocation',
-      status: 'In Review',
-      venue: 'Journal of Medical Ethics',
-      year: '2024',
-      laySummary:
-        'I designed a transplant allocation rule that balances saving the most life-years with never totally abandoning patients at catastrophic risk.',
-      technicalSummary: (
-        <>
-          <p className="mb-3">
-            Existing allocation rules like MELD prioritize urgency but may sacrifice total
-            post-transplant life-years. Pure utilitarian rules that maximize expected benefit can be
-            ethically troubling because they may repeatedly bypass the sickest patients for marginal
-            predicted gains.
-          </p>
-          <p className="mb-3">
-            <strong>Harm-Threshold Utilitarianism (HTU)</strong> retains the utilitarian goal of
-            maximizing expected benefit but imposes two explicit constraints:
-          </p>
-          <ol className="list-decimal ml-6 mb-3 space-y-2">
-            <li>
-              <strong>Epistemic threshold:</strong> Only act on differences in predicted utility that
-              are statistically robust. We compute P(U<sub>i</sub> &gt; U<sub>j</sub>) and require
-              this probability to exceed 1 − α (e.g., 0.95). Under Gaussian assumptions, this yields
-              an uncertainty-adjusted utility μ<sup>adj</sup><sub>i</sub> = μ<sub>i</sub> − z σ<sub>i</sub>,
-              where z = Φ<sup>-1</sup>(1 − α).
-            </li>
-            <li>
-              <strong>Catastrophic harm threshold:</strong> Avoid leaving patients with very high
-              short-term mortality risk H<sub>i</sub> untransplanted purely for marginal predicted
-              gains. Define H<sub>crit</sub> (e.g., 0.30 for 90-day mortality) and for each candidate i,
-              compute N<sub>i</sub> = |{'{'}j ≠ i : H<sub>j</sub> ≥ H<sub>crit</sub>{'}'}|, the number of
-              other patients who would remain above catastrophic risk if organ goes to i.
-            </li>
-          </ol>
-          <p className="mb-3">
-            <strong>Allocation rule:</strong> Lexicographically minimize N<sub>i</sub> first, then
-            maximize μ<sup>adj</sup><sub>i</sub> among tied candidates.
-          </p>
-          <p className="mb-3">
-            <strong>Simulation results</strong> using de-identified OPTN/STAR liver transplant registry
-            data (2002–2025) show that HTU yields approximately <strong>0.25 additional years</strong> (~3 months)
-            of five-year restricted mean survival time (RMST) per transplant compared to MELD-based
-            selection, while protecting the worst-off via the harm threshold.
-          </p>
-          <p>
-            Varying H<sub>crit</sub> traces out an urgency-efficiency frontier, making fairness
-            trade-offs transparent and auditable. HTU embeds basic deontological constraints inside a
-            utilitarian framework, providing a tunable, ethically explicit allocation rule.
-          </p>
-        </>
-      ),
-    },
-    {
       title: 'Return to Sports After Total Hip Arthroplasty: Patterns of Participation and Sport-Specific Outcomes',
       status: 'Published',
       venue: 'The Journal of Arthroplasty',
-      year: '2024',
+      year: '2025',
       laySummary:
         'Most people get back to the sports they enjoy after hip replacement, and surgical approach does not dramatically change that.',
       technicalSummary: (
@@ -163,6 +110,59 @@ export default function Projects() {
       ),
     },
     {
+      title: 'Harm-Threshold Utilitarianism: Exploring an Ethical Framework for Organ Transplant Allocation',
+      status: 'In Review',
+      venue: 'Frontiers in Health Services',
+      year: '2025',
+      laySummary:
+        'I designed a transplant allocation rule that balances saving the most life-years with never totally abandoning patients at catastrophic risk.',
+      technicalSummary: (
+        <>
+          <p className="mb-3">
+            Existing allocation rules like MELD prioritize urgency but may sacrifice total
+            post-transplant life-years. Pure utilitarian rules that maximize expected benefit can be
+            ethically troubling because they may repeatedly bypass the sickest patients for marginal
+            predicted gains.
+          </p>
+          <p className="mb-3">
+            <strong>Harm-Threshold Utilitarianism (HTU)</strong> retains the utilitarian goal of
+            maximizing expected benefit but imposes two explicit constraints:
+          </p>
+          <ol className="list-decimal ml-6 mb-3 space-y-2">
+            <li>
+              <strong>Epistemic threshold:</strong> Only act on differences in predicted utility that
+              are statistically robust. We compute P(U<sub>i</sub> &gt; U<sub>j</sub>) and require
+              this probability to exceed 1 − α (e.g., 0.95). Under Gaussian assumptions, this yields
+              an uncertainty-adjusted utility μ<sup>adj</sup><sub>i</sub> = μ<sub>i</sub> − z σ<sub>i</sub>,
+              where z = Φ<sup>-1</sup>(1 − α).
+            </li>
+            <li>
+              <strong>Catastrophic harm threshold:</strong> Avoid leaving patients with very high
+              short-term mortality risk H<sub>i</sub> untransplanted purely for marginal predicted
+              gains. Define H<sub>crit</sub> (e.g., 0.30 for 90-day mortality) and for each candidate i,
+              compute N<sub>i</sub> = |{'{'}j ≠ i : H<sub>j</sub> ≥ H<sub>crit</sub>{'}'}|, the number of
+              other patients who would remain above catastrophic risk if organ goes to i.
+            </li>
+          </ol>
+          <p className="mb-3">
+            <strong>Allocation rule:</strong> Lexicographically minimize N<sub>i</sub> first, then
+            maximize μ<sup>adj</sup><sub>i</sub> among tied candidates.
+          </p>
+          <p className="mb-3">
+            <strong>Simulation results</strong> using de-identified OPTN/STAR liver transplant registry
+            data (2002–2025) show that HTU yields approximately <strong>0.25 additional years</strong> (~3 months)
+            of five-year restricted mean survival time (RMST) per transplant compared to MELD-based
+            selection, while protecting the worst-off via the harm threshold.
+          </p>
+          <p>
+            Varying H<sub>crit</sub> traces out an urgency-efficiency frontier, making fairness
+            trade-offs transparent and auditable. HTU embeds basic deontological constraints inside a
+            utilitarian framework, providing a tunable, ethically explicit allocation rule.
+          </p>
+        </>
+      ),
+    },
+    {
       title: 'Impact Orientation and Knee Bracing Effects on Tibial Stress: A Finite Element Study',
       status: 'In Preparation',
       venue: 'TBD',
@@ -215,10 +215,10 @@ export default function Projects() {
       ),
     },
     {
-      title: 'Vapor Field Modeling Around Hygroscopic Sinks: Condensation Patterns on Salt Hydrogel and Fungal Surfaces',
-      status: 'In Submission',
-      venue: 'Soft Matter',
-      year: '2024',
+      title: 'Vapor Field and Condensation Patterns around Hygroscopic Sinks: How Fungi Alter Fluid Microenvironments',
+      status: 'In Preparation',
+      venue: 'TBD',
+      year: '2025',
       laySummary:
         'We model and measure how moisture collects near surfaces that absorb water vapor, like salt patches or fungal threads, to understand condensation patterns.',
       technicalSummary: (
@@ -272,91 +272,98 @@ export default function Projects() {
         </>
       ),
     },
-    {
-      title: 'Additional Philosophy Work',
-      status: 'Various',
-      venue: 'PhilArchive',
-      year: '2023–2024',
-      laySummary:
-        'Conceptual and normative work on decision theory, fairness, and medical ethics, archived on PhilArchive.',
-      technicalSummary: (
-        <>
-          <p className="mb-3">
-            My philosophy work focuses on normative decision theory, particularly in contexts where
-            epistemic uncertainty and moral constraints interact. Topics include:
-          </p>
-          <ul className="list-disc ml-6 mb-3 space-y-1">
-            <li>
-              Formal frameworks for combining consequentialist optimization with deontological
-              side-constraints
-            </li>
-            <li>
-              The role of statistical thresholds in preventing morally objectionable outcomes under
-              uncertainty
-            </li>
-            <li>
-              Equity-efficiency trade-offs in scarce resource allocation (transplant, triage, etc.)
-            </li>
-            <li>
-              Conceptual analysis of "harm," "fairness," and "catastrophic risk" in medical policy
-            </li>
-          </ul>
-          <p>
-            Much of this work intersects with the Harm-Threshold Utilitarianism project above. See my{' '}
-            <a href="/philarchive" className="text-blue-600 hover:text-blue-800">
-              PhilArchive page
-            </a>{' '}
-            for additional papers and preprints.
-          </p>
-        </>
-      ),
-    },
   ]
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold text-gray-900 mb-8">Projects & Publications</h1>
+    <div className="max-w-6xl mx-auto">
+      {/* Elegant Header */}
+      <div className="mb-20 text-center">
+        <div className="inline-block">
+          <h1 className="text-6xl font-extralight text-gray-900 mb-4 tracking-tight">Projects</h1>
+          <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
+        </div>
+      </div>
 
-      <div className="space-y-12">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow"
-          >
-            <div className="mb-4">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-2">
-                {project.title}
-              </h2>
-              <div className="flex flex-wrap gap-2 text-sm">
-                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">
-                  {project.status}
-                </span>
-                <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full">
-                  {project.venue}
-                </span>
-                <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full">
-                  {project.year}
-                </span>
+      {/* Project Grid with Timeline */}
+      <div className="relative">
+        {/* Vertical Timeline Line */}
+        <div className="hidden lg:block absolute left-12 top-0 bottom-0 w-px bg-gradient-to-b from-gray-300 via-gray-400 to-gray-300"></div>
+
+        <div className="space-y-24">
+          {projects.map((project, index) => (
+            <div key={index} className="relative group">
+              {/* Timeline Dot */}
+              <div className="hidden lg:block absolute left-12 top-8 w-2 h-2 -ml-px bg-gray-900 rounded-full ring-4 ring-gray-50 transition-all group-hover:ring-gray-100 group-hover:scale-150"></div>
+
+              {/* Project Number */}
+              <div className="hidden lg:block absolute left-0 top-6 w-8 text-right">
+                <span className="text-xs font-light text-gray-400 tracking-widest">0{index + 1}</span>
+              </div>
+
+              {/* Project Content */}
+              <div className="lg:ml-28 bg-white border border-gray-200 overflow-hidden transition-all duration-500 group-hover:border-gray-400 group-hover:shadow-2xl">
+                {/* Header Bar */}
+                <div className="bg-gradient-to-r from-gray-50 to-white px-10 py-6 border-b border-gray-100">
+                  <div className="flex flex-wrap items-baseline justify-between gap-4 mb-4">
+                    <h2 className="text-2xl font-light text-gray-900 leading-tight max-w-3xl">
+                      {project.title}
+                    </h2>
+                    <div className="flex gap-3 text-xs tracking-wider">
+                      <span className="px-4 py-1.5 bg-white border border-gray-300 text-gray-700 font-light uppercase">
+                        {project.status}
+                      </span>
+                      <span className="px-4 py-1.5 bg-gray-900 text-white font-light">
+                        {project.year}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-sm font-light text-gray-500 tracking-wide">{project.venue}</p>
+                </div>
+
+                {/* Content */}
+                <div className="px-10 py-8">
+                  {/* Summary Section */}
+                  <div className="mb-8 pb-8 border-b border-gray-100">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="h-px flex-1 bg-gray-200"></div>
+                      <h3 className="text-xs font-normal text-gray-500 uppercase tracking-widest">
+                        Summary
+                      </h3>
+                      <div className="h-px flex-1 bg-gray-200"></div>
+                    </div>
+                    <p className="text-base leading-relaxed text-gray-700 font-light max-w-4xl mx-auto text-center">
+                      {project.laySummary}
+                    </p>
+                  </div>
+
+                  {/* Technical Details */}
+                  <div>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="h-px flex-1 bg-gray-200"></div>
+                      <h3 className="text-xs font-normal text-gray-500 uppercase tracking-widest">
+                        Technical Details
+                      </h3>
+                      <div className="h-px flex-1 bg-gray-200"></div>
+                    </div>
+                    <div className="text-sm leading-relaxed text-gray-700 font-light space-y-4 max-w-4xl">
+                      {project.technicalSummary}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+          ))}
+        </div>
+      </div>
 
-            <div className="mb-4">
-              <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2">
-                Lay Summary
-              </h3>
-              <p className="text-gray-700 leading-relaxed">{project.laySummary}</p>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2">
-                Technical Summary
-              </h3>
-              <div className="text-gray-700 leading-relaxed space-y-2">
-                {project.technicalSummary}
-              </div>
-            </div>
-          </div>
-        ))}
+      {/* Elegant Footer */}
+      <div className="mt-32 mb-16">
+        <div className="text-center">
+          <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-8"></div>
+          <p className="text-sm text-gray-500 font-light italic tracking-wide">
+            Only projects in which I serve as lead investigator are listed above
+          </p>
+        </div>
       </div>
     </div>
   )
