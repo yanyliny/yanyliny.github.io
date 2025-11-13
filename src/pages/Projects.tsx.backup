@@ -46,6 +46,59 @@ export default function Projects() {
       venue: 'The Journal of Arthroplasty',
       year: '2025',
       laySummary:
+        'I designed a transplant allocation rule that balances saving the most life-years with never totally abandoning patients at catastrophic risk.',
+      technicalSummary: (
+        <>
+          <p className="mb-3">
+            Existing allocation rules like MELD prioritize urgency but may sacrifice total
+            post-transplant life-years. Pure utilitarian rules that maximize expected benefit can be
+            ethically troubling because they may repeatedly bypass the sickest patients for marginal
+            predicted gains.
+          </p>
+          <p className="mb-3">
+            <strong>Harm-Threshold Utilitarianism (HTU)</strong> retains the utilitarian goal of
+            maximizing expected benefit but imposes two explicit constraints:
+          </p>
+          <ol className="list-decimal ml-6 mb-3 space-y-2">
+            <li>
+              <strong>Epistemic threshold:</strong> Only act on differences in predicted utility that
+              are statistically robust. We compute P(U<sub>i</sub> &gt; U<sub>j</sub>) and require
+              this probability to exceed 1 − α (e.g., 0.95). Under Gaussian assumptions, this yields
+              an uncertainty-adjusted utility μ<sup>adj</sup><sub>i</sub> = μ<sub>i</sub> − z σ<sub>i</sub>,
+              where z = Φ<sup>-1</sup>(1 − α).
+            </li>
+            <li>
+              <strong>Catastrophic harm threshold:</strong> Avoid leaving patients with very high
+              short-term mortality risk H<sub>i</sub> untransplanted purely for marginal predicted
+              gains. Define H<sub>crit</sub> (e.g., 0.30 for 90-day mortality) and for each candidate i,
+              compute N<sub>i</sub> = |{'{'}j ≠ i : H<sub>j</sub> ≥ H<sub>crit</sub>{'}'}|, the number of
+              other patients who would remain above catastrophic risk if organ goes to i.
+            </li>
+          </ol>
+          <p className="mb-3">
+            <strong>Allocation rule:</strong> Lexicographically minimize N<sub>i</sub> first, then
+            maximize μ<sup>adj</sup><sub>i</sub> among tied candidates.
+          </p>
+          <p className="mb-3">
+            <strong>Simulation results</strong> using de-identified OPTN/STAR liver transplant registry
+            data (2002–2025) show that HTU yields approximately <strong>0.25 additional years</strong> (~3 months)
+            of five-year restricted mean survival time (RMST) per transplant compared to MELD-based
+            selection, while protecting the worst-off via the harm threshold.
+          </p>
+          <p>
+            Varying H<sub>crit</sub> traces out an urgency-efficiency frontier, making fairness
+            trade-offs transparent and auditable. HTU embeds basic deontological constraints inside a
+            utilitarian framework, providing a tunable, ethically explicit allocation rule.
+          </p>
+        </>
+      ),
+    },
+    {
+      title: 'Return to Sports After Total Hip Arthroplasty: Patterns of Participation and Sport-Specific Outcomes',
+      status: 'Published',
+      venue: 'The Journal of Arthroplasty',
+      year: '2024',
+      laySummary:
         'Most people get back to the sports they enjoy after hip replacement, and surgical approach does not dramatically change that.',
       technicalSummary: (
         <>
@@ -110,59 +163,6 @@ export default function Projects() {
       ),
     },
     {
-      title: 'Harm-Threshold Utilitarianism: Exploring an Ethical Framework for Organ Transplant Allocation',
-      status: 'In Review',
-      venue: 'Frontiers in Health Services',
-      year: '2025',
-      laySummary:
-        'I designed a transplant allocation rule that balances saving the most life-years with never totally abandoning patients at catastrophic risk.',
-      technicalSummary: (
-        <>
-          <p className="mb-3">
-            Existing allocation rules like MELD prioritize urgency but may sacrifice total
-            post-transplant life-years. Pure utilitarian rules that maximize expected benefit can be
-            ethically troubling because they may repeatedly bypass the sickest patients for marginal
-            predicted gains.
-          </p>
-          <p className="mb-3">
-            <strong>Harm-Threshold Utilitarianism (HTU)</strong> retains the utilitarian goal of
-            maximizing expected benefit but imposes two explicit constraints:
-          </p>
-          <ol className="list-decimal ml-6 mb-3 space-y-2">
-            <li>
-              <strong>Epistemic threshold:</strong> Only act on differences in predicted utility that
-              are statistically robust. We compute P(U<sub>i</sub> &gt; U<sub>j</sub>) and require
-              this probability to exceed 1 − α (e.g., 0.95). Under Gaussian assumptions, this yields
-              an uncertainty-adjusted utility μ<sup>adj</sup><sub>i</sub> = μ<sub>i</sub> − z σ<sub>i</sub>,
-              where z = Φ<sup>-1</sup>(1 − α).
-            </li>
-            <li>
-              <strong>Catastrophic harm threshold:</strong> Avoid leaving patients with very high
-              short-term mortality risk H<sub>i</sub> untransplanted purely for marginal predicted
-              gains. Define H<sub>crit</sub> (e.g., 0.30 for 90-day mortality) and for each candidate i,
-              compute N<sub>i</sub> = |{'{'}j ≠ i : H<sub>j</sub> ≥ H<sub>crit</sub>{'}'}|, the number of
-              other patients who would remain above catastrophic risk if organ goes to i.
-            </li>
-          </ol>
-          <p className="mb-3">
-            <strong>Allocation rule:</strong> Lexicographically minimize N<sub>i</sub> first, then
-            maximize μ<sup>adj</sup><sub>i</sub> among tied candidates.
-          </p>
-          <p className="mb-3">
-            <strong>Simulation results</strong> using de-identified OPTN/STAR liver transplant registry
-            data (2002–2025) show that HTU yields approximately <strong>0.25 additional years</strong> (~3 months)
-            of five-year restricted mean survival time (RMST) per transplant compared to MELD-based
-            selection, while protecting the worst-off via the harm threshold.
-          </p>
-          <p>
-            Varying H<sub>crit</sub> traces out an urgency-efficiency frontier, making fairness
-            trade-offs transparent and auditable. HTU embeds basic deontological constraints inside a
-            utilitarian framework, providing a tunable, ethically explicit allocation rule.
-          </p>
-        </>
-      ),
-    },
-    {
       title: 'Impact Orientation and Knee Bracing Effects on Tibial Stress: A Finite Element Study',
       status: 'In Preparation',
       venue: 'TBD',
@@ -215,10 +215,10 @@ export default function Projects() {
       ),
     },
     {
-      title: 'Vapor Field and Condensation Patterns around Hygroscopic Sinks: How Fungi Alter Fluid Microenvironments',
-      status: 'In Preparation',
-      venue: 'TBD',
-      year: '2025',
+      title: 'Vapor Field Modeling Around Hygroscopic Sinks: Condensation Patterns on Salt Hydrogel and Fungal Surfaces',
+      status: 'In Submission',
+      venue: 'Soft Matter',
+      year: '2024',
       laySummary:
         'We model and measure how moisture collects near surfaces that absorb water vapor, like salt patches or fungal threads, to understand condensation patterns.',
       technicalSummary: (
@@ -272,6 +272,45 @@ export default function Projects() {
         </>
       ),
     },
+    {
+      title: 'Additional Philosophy Work',
+      status: 'Various',
+      venue: 'PhilArchive',
+      year: '2023–2024',
+      laySummary:
+        'Conceptual and normative work on decision theory, fairness, and medical ethics, archived on PhilArchive.',
+      technicalSummary: (
+        <>
+          <p className="mb-3">
+            My philosophy work focuses on normative decision theory, particularly in contexts where
+            epistemic uncertainty and moral constraints interact. Topics include:
+          </p>
+          <ul className="list-disc ml-6 mb-3 space-y-1">
+            <li>
+              Formal frameworks for combining consequentialist optimization with deontological
+              side-constraints
+            </li>
+            <li>
+              The role of statistical thresholds in preventing morally objectionable outcomes under
+              uncertainty
+            </li>
+            <li>
+              Equity-efficiency trade-offs in scarce resource allocation (transplant, triage, etc.)
+            </li>
+            <li>
+              Conceptual analysis of "harm," "fairness," and "catastrophic risk" in medical policy
+            </li>
+          </ul>
+          <p>
+            Much of this work intersects with the Harm-Threshold Utilitarianism project above. See my{' '}
+            <a href="/philarchive" className="text-blue-600 hover:text-blue-800">
+              PhilArchive page
+            </a>{' '}
+            for additional papers and preprints.
+          </p>
+        </>
+      ),
+    },
   ]
 
   return (
@@ -318,12 +357,6 @@ export default function Projects() {
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="mt-16 pt-8 border-t border-gray-200">
-        <p className="text-sm text-gray-500 font-light italic text-center">
-          Only projects in which I serve as lead investigator are listed above.
-        </p>
       </div>
     </div>
   )
