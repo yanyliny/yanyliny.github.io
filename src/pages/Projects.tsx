@@ -275,55 +275,95 @@ export default function Projects() {
   ]
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-5xl font-light text-gray-900 mb-16 tracking-tight">Projects</h1>
-
-      <div className="space-y-16">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="bg-white border border-gray-200 p-8 hover:border-gray-400 transition-all duration-300"
-          >
-            <div className="mb-6">
-              <h2 className="text-2xl font-light text-gray-900 mb-3 leading-tight">
-                {project.title}
-              </h2>
-              <div className="flex flex-wrap gap-3 text-sm">
-                <span className="px-3 py-1 bg-gray-100 text-gray-700 font-light">
-                  {project.status}
-                </span>
-                <span className="px-3 py-1 bg-gray-100 text-gray-600 font-light">
-                  {project.venue}
-                </span>
-                <span className="px-3 py-1 bg-gray-100 text-gray-600 font-light">
-                  {project.year}
-                </span>
-              </div>
-            </div>
-
-            <div className="mb-6">
-              <h3 className="text-xs font-normal text-gray-500 uppercase tracking-wider mb-3">
-                Summary
-              </h3>
-              <p className="text-gray-700 leading-relaxed font-light">{project.laySummary}</p>
-            </div>
-
-            <div>
-              <h3 className="text-xs font-normal text-gray-500 uppercase tracking-wider mb-3">
-                Technical Details
-              </h3>
-              <div className="text-gray-700 leading-relaxed space-y-3 font-light">
-                {project.technicalSummary}
-              </div>
-            </div>
-          </div>
-        ))}
+    <div className="max-w-6xl mx-auto">
+      {/* Elegant Header */}
+      <div className="mb-20 text-center">
+        <div className="inline-block">
+          <h1 className="text-6xl font-extralight text-gray-900 mb-4 tracking-tight">Projects</h1>
+          <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
+        </div>
       </div>
 
-      <div className="mt-16 pt-8 border-t border-gray-200">
-        <p className="text-sm text-gray-500 font-light italic text-center">
-          Only projects in which I serve as lead investigator are listed above.
-        </p>
+      {/* Project Grid with Timeline */}
+      <div className="relative">
+        {/* Vertical Timeline Line */}
+        <div className="hidden lg:block absolute left-12 top-0 bottom-0 w-px bg-gradient-to-b from-gray-300 via-gray-400 to-gray-300"></div>
+
+        <div className="space-y-24">
+          {projects.map((project, index) => (
+            <div key={index} className="relative group">
+              {/* Timeline Dot */}
+              <div className="hidden lg:block absolute left-12 top-8 w-2 h-2 -ml-px bg-gray-900 rounded-full ring-4 ring-gray-50 transition-all group-hover:ring-gray-100 group-hover:scale-150"></div>
+
+              {/* Project Number */}
+              <div className="hidden lg:block absolute left-0 top-6 w-8 text-right">
+                <span className="text-xs font-light text-gray-400 tracking-widest">0{index + 1}</span>
+              </div>
+
+              {/* Project Content */}
+              <div className="lg:ml-28 bg-white border border-gray-200 overflow-hidden transition-all duration-500 group-hover:border-gray-400 group-hover:shadow-2xl">
+                {/* Header Bar */}
+                <div className="bg-gradient-to-r from-gray-50 to-white px-10 py-6 border-b border-gray-100">
+                  <div className="flex flex-wrap items-baseline justify-between gap-4 mb-4">
+                    <h2 className="text-2xl font-light text-gray-900 leading-tight max-w-3xl">
+                      {project.title}
+                    </h2>
+                    <div className="flex gap-3 text-xs tracking-wider">
+                      <span className="px-4 py-1.5 bg-white border border-gray-300 text-gray-700 font-light uppercase">
+                        {project.status}
+                      </span>
+                      <span className="px-4 py-1.5 bg-gray-900 text-white font-light">
+                        {project.year}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-sm font-light text-gray-500 tracking-wide">{project.venue}</p>
+                </div>
+
+                {/* Content */}
+                <div className="px-10 py-8">
+                  {/* Summary Section */}
+                  <div className="mb-8 pb-8 border-b border-gray-100">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="h-px flex-1 bg-gray-200"></div>
+                      <h3 className="text-xs font-normal text-gray-500 uppercase tracking-widest">
+                        Summary
+                      </h3>
+                      <div className="h-px flex-1 bg-gray-200"></div>
+                    </div>
+                    <p className="text-base leading-relaxed text-gray-700 font-light max-w-4xl mx-auto text-center">
+                      {project.laySummary}
+                    </p>
+                  </div>
+
+                  {/* Technical Details */}
+                  <div>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="h-px flex-1 bg-gray-200"></div>
+                      <h3 className="text-xs font-normal text-gray-500 uppercase tracking-widest">
+                        Technical Details
+                      </h3>
+                      <div className="h-px flex-1 bg-gray-200"></div>
+                    </div>
+                    <div className="text-sm leading-relaxed text-gray-700 font-light space-y-4 max-w-4xl">
+                      {project.technicalSummary}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Elegant Footer */}
+      <div className="mt-32 mb-16">
+        <div className="text-center">
+          <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-8"></div>
+          <p className="text-sm text-gray-500 font-light italic tracking-wide">
+            Only projects in which I serve as lead investigator are listed above
+          </p>
+        </div>
       </div>
     </div>
   )
