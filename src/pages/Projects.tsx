@@ -6,6 +6,7 @@ export default function Projects() {
       venue: 'Droplet',
       year: '2025',
       link: 'https://www.researchgate.net/profile/Yanjun-Lin-7/publication/392521031_Acoustic-Driven_Surface_Cleaning_with_Millimeter-Sized_Bubbles_at_Translational_Resonance/links/6846d7838a76251f22ec6c19/Acoustic-Driven-Surface-Cleaning-with-Millimeter-Sized-Bubbles-at-Translational-Resonance.pdf',
+      image: '', // Add image URL here (optional)
       laySummary:
         'We found a sweet spot in how you shake millimeter-sized bubbles so they scrub surfaces much more effectively without needing harsh cavitation.',
       technicalSummary: (
@@ -46,6 +47,7 @@ export default function Projects() {
       status: 'Published',
       venue: 'The Journal of Arthroplasty',
       year: '2025',
+      image: '', // Add image URL here (optional)
       laySummary:
         'Most people get back to the sports they enjoy after hip replacement, and surgical approach does not dramatically change that.',
       technicalSummary: (
@@ -115,6 +117,7 @@ export default function Projects() {
       status: 'In Review',
       venue: 'Frontiers in Health Services',
       year: '2025',
+      image: '', // Add image URL here (optional)
       laySummary:
         'I designed a transplant allocation rule that balances saving the most life-years with never totally abandoning patients at catastrophic risk.',
       technicalSummary: (
@@ -168,6 +171,7 @@ export default function Projects() {
       status: 'In Preparation',
       venue: 'TBD',
       year: '2025',
+      image: '', // Add image URL here (optional)
       laySummary:
         'Using computer simulations of the tibia, we show how the angle of impact and whether your knee is braced change where stress concentrates in the bone.',
       technicalSummary: (
@@ -220,6 +224,7 @@ export default function Projects() {
       status: 'In Preparation',
       venue: 'TBD',
       year: '2025',
+      image: '', // Add image URL here (optional)
       laySummary:
         'We model and measure how moisture collects near surfaces that absorb water vapor, like salt patches or fungal threads, to understand condensation patterns.',
       technicalSummary: (
@@ -335,6 +340,22 @@ export default function Projects() {
 
                 {/* Content */}
                 <div className="px-10 py-8">
+                  {/* Image (if provided) */}
+                  {project.image && (
+                    <div className="mb-8">
+                      <div className="relative overflow-hidden rounded-sm aspect-video bg-gradient-to-br from-amber-50 to-stone-100 luxury-card">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).style.display = 'none'
+                          }}
+                        />
+                      </div>
+                    </div>
+                  )}
+
                   {/* Summary Section */}
                   <div className="mb-8 pb-8 border-b border-gray-100">
                     <div className="flex items-center gap-3 mb-4">
