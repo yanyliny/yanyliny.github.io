@@ -4,18 +4,18 @@ export default function Home() {
   return (
     <div className="max-w-5xl mx-auto">
       {/* Hero Section */}
-      <div className="text-center mb-24 mt-16 fade-in">
+      <div className="text-center mb-24 mt-16 fade-in-warm">
         <div className="relative inline-block">
-          {/* Decorative elements */}
-          <div className="absolute -top-8 -left-8 w-24 h-24 border-t-2 border-l-2 border-gray-200 opacity-50"></div>
-          <div className="absolute -bottom-8 -right-8 w-24 h-24 border-b-2 border-r-2 border-gray-200 opacity-50"></div>
+          {/* Decorative corner ornaments */}
+          <div className="corner-ornament corner-ornament-tl"></div>
+          <div className="corner-ornament corner-ornament-br"></div>
 
           <div className="relative px-16 py-12">
-            <h1 className="text-7xl font-extralight text-gray-900 mb-4 tracking-tighter">
+            <h1 className="text-7xl font-extralight text-gray-900 mb-4 tracking-tighter text-depth">
               Yany Lin
             </h1>
-            <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mb-6"></div>
-            <p className="text-xl text-gray-600 font-light tracking-wide">
+            <div className="gold-accent mb-6 mx-auto max-w-md"></div>
+            <p className="text-xl text-gray-700 font-light tracking-wide">
               BA, Cornell University
             </p>
           </div>
@@ -23,34 +23,33 @@ export default function Home() {
       </div>
 
       {/* Description */}
-      <div className="max-w-3xl mx-auto mb-20 fade-in" style={{animationDelay: '0.2s'}}>
-        <div className="glass p-10 rounded-sm">
-          <p className="text-lg leading-relaxed text-gray-700 text-center font-light">
+      <div className="max-w-3xl mx-auto mb-20 fade-in-warm" style={{animationDelay: '0.2s'}}>
+        <div className="premium-glass p-10 rounded-sm hover-lift">
+          <p className="text-lg leading-relaxed text-gray-800 text-center font-light">
             My research spans experimental fluid mechanics, medical ethics, and orthopaedic outcomes,
             exploring everything from acoustic bubble dynamics to transplant allocation frameworks.
-            I also maintain zenithvintage.org, an archive of old music I'm collecting and organizing.
+            I also maintain zenithvintage.org, an archive of old music I'm collecting.
           </p>
         </div>
       </div>
 
       {/* Navigation Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 stagger-children">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 stagger-elegant">
         <Link
           to="/projects"
-          className="group relative fancy-card fancy-card-hover overflow-hidden p-10"
+          className="group luxury-card luxury-card-hover ambient-glow p-10 rounded-sm"
         >
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gray-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
           <div className="relative">
             <div className="mb-6">
-              <div className="w-12 h-px bg-gray-900 group-hover:w-20 transition-all duration-500"></div>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-amber-600 to-orange-500 group-hover:w-20 transition-all duration-500"></div>
             </div>
-            <h2 className="text-3xl font-extralight text-gray-900 mb-4 group-hover:text-gray-600 transition-colors duration-500">
+            <h2 className="text-3xl font-extralight text-gray-900 mb-4 group-hover:text-amber-900 transition-colors duration-500 text-depth">
               Projects
             </h2>
-            <p className="text-gray-600 font-light leading-relaxed">
+            <p className="text-gray-700 font-light leading-relaxed">
               Research in fluid mechanics, medical ethics, and biomechanics
             </p>
-            <div className="mt-6 text-sm text-gray-400 group-hover:text-gray-600 transition-colors">
+            <div className="mt-6 text-sm text-gray-500 group-hover:text-amber-700 transition-colors">
               View work →
             </div>
           </div>
@@ -60,62 +59,59 @@ export default function Home() {
           href="https://zenithvintage.org"
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative fancy-card fancy-card-hover overflow-hidden p-10"
+          className="group luxury-card luxury-card-hover ambient-glow p-10 rounded-sm"
         >
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gray-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
           <div className="relative">
             <div className="mb-6">
-              <div className="w-12 h-px bg-gray-900 group-hover:w-20 transition-all duration-500"></div>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-amber-600 to-orange-500 group-hover:w-20 transition-all duration-500"></div>
             </div>
-            <h2 className="text-3xl font-extralight text-gray-900 mb-4 group-hover:text-gray-600 transition-colors duration-500">
+            <h2 className="text-3xl font-extralight text-gray-900 mb-4 group-hover:text-amber-900 transition-colors duration-500 text-depth">
               ZenithVintage
             </h2>
-            <p className="text-gray-600 font-light leading-relaxed">
-              Archive of old music, collected and organized
+            <p className="text-gray-700 font-light leading-relaxed">
+              Archive of old music I'm collecting
             </p>
-            <div className="mt-6 text-sm text-gray-400 group-hover:text-gray-600 transition-colors">
+            <div className="mt-6 text-sm text-gray-500 group-hover:text-amber-700 transition-colors">
               Visit archive →
             </div>
           </div>
         </a>
 
         <Link
-          to="/philarchive"
-          className="group relative fancy-card fancy-card-hover overflow-hidden p-10"
+          to="/youtube"
+          className="group luxury-card luxury-card-hover ambient-glow p-10 rounded-sm"
         >
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gray-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
           <div className="relative">
             <div className="mb-6">
-              <div className="w-12 h-px bg-gray-900 group-hover:w-20 transition-all duration-500"></div>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-amber-600 to-orange-500 group-hover:w-20 transition-all duration-500"></div>
             </div>
-            <h2 className="text-3xl font-extralight text-gray-900 mb-4 group-hover:text-gray-600 transition-colors duration-500">
-              PhilArchive
+            <h2 className="text-3xl font-extralight text-gray-900 mb-4 group-hover:text-amber-900 transition-colors duration-500 text-depth">
+              YouTube
             </h2>
-            <p className="text-gray-600 font-light leading-relaxed">
-              Philosophy and normative decision theory
+            <p className="text-gray-700 font-light leading-relaxed">
+              Videos about research, experiments, and projects
             </p>
-            <div className="mt-6 text-sm text-gray-400 group-hover:text-gray-600 transition-colors">
-              View work →
+            <div className="mt-6 text-sm text-gray-500 group-hover:text-amber-700 transition-colors">
+              Visit channel →
             </div>
           </div>
         </Link>
 
         <Link
           to="/happenings"
-          className="group relative fancy-card fancy-card-hover overflow-hidden p-10"
+          className="group luxury-card luxury-card-hover ambient-glow p-10 rounded-sm"
         >
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gray-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
           <div className="relative">
             <div className="mb-6">
-              <div className="w-12 h-px bg-gray-900 group-hover:w-20 transition-all duration-500"></div>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-amber-600 to-orange-500 group-hover:w-20 transition-all duration-500"></div>
             </div>
-            <h2 className="text-3xl font-extralight text-gray-900 mb-4 group-hover:text-gray-600 transition-colors duration-500">
+            <h2 className="text-3xl font-extralight text-gray-900 mb-4 group-hover:text-amber-900 transition-colors duration-500 text-depth">
               Happenings
             </h2>
-            <p className="text-gray-600 font-light leading-relaxed">
+            <p className="text-gray-700 font-light leading-relaxed">
               Updates and current work
             </p>
-            <div className="mt-6 text-sm text-gray-400 group-hover:text-gray-600 transition-colors">
+            <div className="mt-6 text-sm text-gray-500 group-hover:text-amber-700 transition-colors">
               See more →
             </div>
           </div>

@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
-import PhilArchive from './pages/PhilArchive'
+import YouTube from './pages/YouTube'
 import Happenings from './pages/Happenings'
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/philarchive" element={<PhilArchive />} />
+          <Route path="/youtube" element={<YouTube />} />
           <Route path="/happenings" element={<Happenings />} />
         </Routes>
       </Layout>
