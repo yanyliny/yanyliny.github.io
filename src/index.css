@@ -4,16 +4,16 @@
 
 body {
   @apply bg-gray-50 text-gray-900;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 300;
+  letter-spacing: 0.01em;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', monospace;
+  font-weight: 400;
 }
 
 /* Smooth scrolling */
@@ -21,12 +21,31 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom link styles */
+/* Elegant link styles */
 a {
-  @apply text-blue-600 hover:text-blue-800 transition-colors;
+  @apply transition-colors duration-200;
+}
+
+/* Headings with lighter weight */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  letter-spacing: -0.02em;
 }
 
 /* Math notation styling */
 .math {
   @apply font-serif italic;
+}
+
+/* Prose adjustments for lighter feel */
+.prose {
+  @apply text-gray-700;
+}
+
+.prose strong {
+  @apply text-gray-900 font-medium;
+}
+
+.prose em {
+  @apply italic font-light;
 }

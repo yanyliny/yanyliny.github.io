@@ -315,43 +315,43 @@ export default function Projects() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold text-gray-900 mb-8">Projects & Publications</h1>
+      <h1 className="text-5xl font-light text-gray-900 mb-16 tracking-tight">Projects</h1>
 
-      <div className="space-y-12">
+      <div className="space-y-16">
         {projects.map((project, index) => (
           <div
             key={index}
-            className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow"
+            className="bg-white border border-gray-200 p-8 hover:border-gray-400 transition-all duration-300"
           >
-            <div className="mb-4">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+            <div className="mb-6">
+              <h2 className="text-2xl font-light text-gray-900 mb-3 leading-tight">
                 {project.title}
               </h2>
-              <div className="flex flex-wrap gap-2 text-sm">
-                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">
+              <div className="flex flex-wrap gap-3 text-sm">
+                <span className="px-3 py-1 bg-gray-100 text-gray-700 font-light">
                   {project.status}
                 </span>
-                <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full">
+                <span className="px-3 py-1 bg-gray-100 text-gray-600 font-light">
                   {project.venue}
                 </span>
-                <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full">
+                <span className="px-3 py-1 bg-gray-100 text-gray-600 font-light">
                   {project.year}
                 </span>
               </div>
             </div>
 
-            <div className="mb-4">
-              <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2">
-                Lay Summary
+            <div className="mb-6">
+              <h3 className="text-xs font-normal text-gray-500 uppercase tracking-wider mb-3">
+                Summary
               </h3>
-              <p className="text-gray-700 leading-relaxed">{project.laySummary}</p>
+              <p className="text-gray-700 leading-relaxed font-light">{project.laySummary}</p>
             </div>
 
             <div>
-              <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2">
-                Technical Summary
+              <h3 className="text-xs font-normal text-gray-500 uppercase tracking-wider mb-3">
+                Technical Details
               </h3>
-              <div className="text-gray-700 leading-relaxed space-y-2">
+              <div className="text-gray-700 leading-relaxed space-y-3 font-light">
                 {project.technicalSummary}
               </div>
             </div>
