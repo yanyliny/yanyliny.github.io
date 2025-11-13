@@ -161,7 +161,7 @@
   }
 
   .luxury-card-hover:hover {
-    transform: translateY(-8px) rotateX(2deg) scale(1.02);
+    transform: translateY(-8px) scale(1.02);
     box-shadow:
       0 4px 12px rgba(120, 53, 15, 0.12),
       0 16px 32px rgba(120, 53, 15, 0.1),
@@ -373,7 +373,7 @@
   }
 
   .card-3d:hover {
-    transform: perspective(1000px) rotateY(5deg) rotateX(-5deg) translateZ(20px);
+    transform: perspective(1000px) translateZ(20px);
   }
 }
 
