@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - master
+      - claude/personal-website-setup-015CWYuccoLvtaFyeqkjpSSr
   workflow_dispatch:
 
 permissions:
