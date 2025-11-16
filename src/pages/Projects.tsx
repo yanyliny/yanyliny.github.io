@@ -47,6 +47,7 @@ export default function Projects() {
       status: 'Published',
       venue: 'The Journal of Arthroplasty',
       year: '2025',
+      link: 'https://www.sciencedirect.com/science/article/pii/S0883540325014500',
       image: '', // Add image URL here (optional)
       laySummary:
         'Most people get back to the sports they enjoy after hip replacement, and surgical approach does not dramatically change that.',
