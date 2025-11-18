@@ -149,8 +149,10 @@ export default function Home() {
           </div>
         </Link>
 
-        <Link
-          to="/happenings"
+        <a
+          href="http://yanylin.me/AthleteGuard/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="group luxury-card luxury-card-hover ambient-glow mouse-light p-8 sm:p-10 rounded-sm card-3d"
         >
           <div className="relative">
@@ -158,16 +160,16 @@ export default function Home() {
               <div className="w-10 sm:w-12 h-0.5 bg-gradient-to-r from-amber-600 to-orange-500 group-hover:w-16 sm:group-hover:w-20 transition-all duration-500"></div>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extralight text-gray-900 mb-3 sm:mb-4 group-hover:text-amber-900 transition-colors duration-500 text-depth">
-              Happenings
+              AthleteGuard
             </h2>
             <p className="text-sm sm:text-base text-gray-700 font-light leading-relaxed">
-              Updates and current work
+              Sports injury prevention and safety
             </p>
             <div className="mt-4 sm:mt-6 text-xs sm:text-sm text-gray-500 group-hover:text-amber-700 transition-colors">
-              See more →
+              Visit site →
             </div>
           </div>
-        </Link>
+        </a>
       </div>
     </div>
   )

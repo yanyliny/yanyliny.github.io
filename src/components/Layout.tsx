@@ -8,10 +8,10 @@ export default function Layout({ children }: LayoutProps) {
   const location = useLocation()
 
   const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/youtube', label: 'YouTube' },
-    { path: '/happenings', label: 'Happenings' },
+    { path: '/', label: 'Home', external: false },
+    { path: '/projects', label: 'Projects', external: false },
+    { path: '/youtube', label: 'YouTube', external: false },
+    { path: 'http://yanylin.me/AthleteGuard/', label: 'AthleteGuard', external: true },
   ]
 
   return (
@@ -22,20 +22,33 @@ export default function Layout({ children }: LayoutProps) {
           <div className="flex justify-center items-center h-16 sm:h-20">
             <div className="flex space-x-4 sm:space-x-8 md:space-x-12 overflow-x-auto">
               {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`group relative inline-flex items-center px-1 pt-1 text-xs sm:text-sm font-light tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${
-                    location.pathname === item.path
-                      ? 'text-amber-900'
-                      : 'text-gray-600 hover:text-amber-900'
-                  }`}
-                >
-                  {item.label}
-                  <span className={`absolute -bottom-px left-0 h-0.5 bg-gradient-to-r from-amber-600 to-orange-500 transition-all duration-300 ${
-                    location.pathname === item.path ? 'w-full' : 'w-0 group-hover:w-full'
-                  }`}></span>
-                </Link>
+                item.external ? (
+                  <a
+                    key={item.path}
+                    href={item.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative inline-flex items-center px-1 pt-1 text-xs sm:text-sm font-light tracking-widest uppercase transition-all duration-300 whitespace-nowrap text-gray-600 hover:text-amber-900"
+                  >
+                    {item.label}
+                    <span className="absolute -bottom-px left-0 h-0.5 bg-gradient-to-r from-amber-600 to-orange-500 transition-all duration-300 w-0 group-hover:w-full"></span>
+                  </a>
+                ) : (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`group relative inline-flex items-center px-1 pt-1 text-xs sm:text-sm font-light tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${
+                      location.pathname === item.path
+                        ? 'text-amber-900'
+                        : 'text-gray-600 hover:text-amber-900'
+                    }`}
+                  >
+                    {item.label}
+                    <span className={`absolute -bottom-px left-0 h-0.5 bg-gradient-to-r from-amber-600 to-orange-500 transition-all duration-300 ${
+                      location.pathname === item.path ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}></span>
+                  </Link>
+                )
               ))}
             </div>
           </div>
