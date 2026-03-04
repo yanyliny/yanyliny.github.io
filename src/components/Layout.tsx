@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import ThemeButton from './ThemeButton'
 import ThemeOverlay from './ThemeOverlay'
@@ -8,6 +9,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation()
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const navItems = [
     { path: '/', label: 'Home' },
@@ -52,14 +54,14 @@ export default function Layout({ children }: LayoutProps) {
         }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center h-20">
+          <div className="flex items-center h-16 md:h-20">
             {/* Theme button — left */}
-            <div className="flex-shrink-0 w-24">
+            <div className="flex-shrink-0">
               <ThemeButton />
             </div>
 
-            {/* Nav links — center */}
-            <div className="flex-1 flex justify-center">
+            {/* Nav links — center (desktop) */}
+            <div className="hidden md:flex flex-1 justify-center">
               <div className="flex space-x-12">
                 {navItems.map((item) =>
                   item.external ? (
@@ -87,15 +89,77 @@ export default function Layout({ children }: LayoutProps) {
               </div>
             </div>
 
-            {/* Spacer — right (balance the theme button) */}
-            <div className="flex-shrink-0 w-24" />
+            {/* Spacer — right (desktop only) */}
+            <div className="hidden md:block flex-shrink-0 w-24" />
+
+            {/* Hamburger — mobile only */}
+            <button
+              className="md:hidden ml-auto p-2"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+              style={{ color: 'var(--text-secondary)', background: 'none', border: 'none' }}
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                {menuOpen ? (
+                  <>
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                    <line x1="6" y1="18" x2="18" y2="6" />
+                  </>
+                ) : (
+                  <>
+                    <line x1="4" y1="7" x2="20" y2="7" />
+                    <line x1="4" y1="12" x2="20" y2="12" />
+                    <line x1="4" y1="17" x2="20" y2="17" />
+                  </>
+                )}
+              </svg>
+            </button>
           </div>
         </div>
+
+        {/* Mobile dropdown */}
+        {menuOpen && (
+          <div
+            className="md:hidden border-t"
+            style={{
+              backgroundColor: 'var(--nav-bg)',
+              borderColor: 'var(--nav-border)',
+            }}
+          >
+            <div className="px-4 py-4 space-y-3">
+              {navItems.map((item) =>
+                item.external ? (
+                  <a
+                    key={item.path}
+                    href={item.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="nav-link block py-2"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`nav-link block py-2 ${
+                      location.pathname === item.path ? 'active' : ''
+                    }`}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Main Content */}
       <main className="flex-grow relative" style={{ zIndex: 2 }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20">
           {children}
         </div>
       </main>

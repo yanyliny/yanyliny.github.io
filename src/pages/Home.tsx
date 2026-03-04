@@ -36,9 +36,9 @@ export default function Home() {
       </Helmet>
 
       {/* Hero Section */}
-      <div className="flex flex-col md:flex-row items-center justify-center gap-16 mb-24 mt-16 fade-in">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 mb-16 md:mb-24 mt-8 md:mt-16 fade-in">
         {/* Corner-stacked headshot */}
-        <div className="relative w-56 h-64 flex-shrink-0 group">
+        <div className="relative w-44 h-52 md:w-56 md:h-64 flex-shrink-0 group">
           <div
             className="absolute top-0 left-0 w-48 h-56 rounded-sm transition-transform duration-700 group-hover:translate-x-[-2px] group-hover:translate-y-[-2px]"
             style={{ border: '1px solid var(--border)' }}
@@ -62,7 +62,7 @@ export default function Home() {
             <div className="absolute -top-6 -left-6 w-16 h-16 border-t border-l opacity-40" style={{ borderColor: 'var(--border)' }} />
             <div className="absolute -bottom-6 -right-6 w-16 h-16 border-b border-r opacity-40" style={{ borderColor: 'var(--border)' }} />
             <div className="relative px-8 py-8">
-              <h1 className="text-7xl font-extralight mb-4 tracking-tighter">
+              <h1 className="text-5xl md:text-7xl font-extralight mb-4 tracking-tighter">
                 Yany Lin
               </h1>
               <div className="h-px shimmer" style={{ background: `linear-gradient(to right, var(--divider), var(--border), transparent)` }} />
@@ -86,7 +86,7 @@ export default function Home() {
       {/* Description */}
       <RevealCard>
         <div className="max-w-3xl mx-auto mb-24">
-          <div className="glass p-12 rounded-sm relative overflow-hidden">
+          <div className="glass p-6 md:p-12 rounded-sm relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-px" style={{ background: `linear-gradient(to right, transparent, var(--border), transparent)` }} />
             <p className="text-lg leading-relaxed text-center font-light" style={{ color: 'var(--text-secondary)' }}>
               My research spans experimental fluid mechanics, medical ethics, and orthopaedic outcomes,
@@ -110,22 +110,22 @@ export default function Home() {
             {card.internal ? (
               <Link
                 to={card.to}
-                className="group relative no-underline fancy-card fancy-card-hover overflow-hidden p-10 block"
+                className="group relative no-underline fancy-card fancy-card-hover overflow-hidden p-6 md:p-10 block"
               >
                 <div className="absolute top-0 left-0 w-full h-px opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: `linear-gradient(to right, transparent, var(--border), transparent)` }} />
                 <div className="absolute top-0 right-0 w-40 h-40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-bl-full" style={{ background: `linear-gradient(to bottom right, var(--accent-subtle), transparent)` }} />
                 <div className="relative">
-                  <div className="mb-6 flex items-center gap-3">
+                  <div className="mb-4 md:mb-6 flex items-center gap-3">
                     <div className="w-12 h-px group-hover:w-20 transition-all duration-500" style={{ backgroundColor: 'var(--text-primary)' }} />
                     <span className="text-[10px] font-light tracking-[0.3em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ color: 'var(--text-muted)' }}>0{i + 1}</span>
                   </div>
-                  <h2 className="text-3xl font-extralight mb-4 transition-colors duration-500" style={{ color: 'var(--text-primary)' }}>
+                  <h2 className="text-2xl md:text-3xl font-extralight mb-3 md:mb-4 transition-colors duration-500" style={{ color: 'var(--text-primary)' }}>
                     {card.title}
                   </h2>
-                  <p className="font-light leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                  <p className="text-sm md:text-base font-light leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     {card.desc}
                   </p>
-                  <div className="mt-6 text-sm transition-all duration-500 group-hover:translate-x-1" style={{ color: 'var(--text-muted)' }}>
+                  <div className="mt-4 md:mt-6 text-sm transition-all duration-500 group-hover:translate-x-1" style={{ color: 'var(--text-muted)' }}>
                     {card.cta} →
                   </div>
                 </div>
@@ -135,22 +135,22 @@ export default function Home() {
                 href={card.to}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative no-underline fancy-card fancy-card-hover overflow-hidden p-10 block"
+                className="group relative no-underline fancy-card fancy-card-hover overflow-hidden p-6 md:p-10 block"
               >
                 <div className="absolute top-0 left-0 w-full h-px opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: `linear-gradient(to right, transparent, var(--border), transparent)` }} />
                 <div className="absolute top-0 right-0 w-40 h-40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-bl-full" style={{ background: `linear-gradient(to bottom right, var(--accent-subtle), transparent)` }} />
                 <div className="relative">
-                  <div className="mb-6 flex items-center gap-3">
+                  <div className="mb-4 md:mb-6 flex items-center gap-3">
                     <div className="w-12 h-px group-hover:w-20 transition-all duration-500" style={{ backgroundColor: 'var(--text-primary)' }} />
                     <span className="text-[10px] font-light tracking-[0.3em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ color: 'var(--text-muted)' }}>0{i + 1}</span>
                   </div>
-                  <h2 className="text-3xl font-extralight mb-4 transition-colors duration-500" style={{ color: 'var(--text-primary)' }}>
+                  <h2 className="text-2xl md:text-3xl font-extralight mb-3 md:mb-4 transition-colors duration-500" style={{ color: 'var(--text-primary)' }}>
                     {card.title}
                   </h2>
-                  <p className="font-light leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                  <p className="text-sm md:text-base font-light leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     {card.desc}
                   </p>
-                  <div className="mt-6 text-sm transition-all duration-500 group-hover:translate-x-1" style={{ color: 'var(--text-muted)' }}>
+                  <div className="mt-4 md:mt-6 text-sm transition-all duration-500 group-hover:translate-x-1" style={{ color: 'var(--text-muted)' }}>
                     {card.cta} →
                   </div>
                 </div>

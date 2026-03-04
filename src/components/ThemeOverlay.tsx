@@ -440,7 +440,7 @@ export default function ThemeOverlay() {
   const { theme } = useTheme()
   if (theme === 'light' || theme === 'dark') return null
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 1 }}>
+    <div className="hidden md:block fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 1 }}>
       {theme === 'vaporwave' && <VaporwaveOverlay />}
       {theme === 'atomic' && <AtomicOverlay />}
       {theme === 'fluid' && <FluidOverlay />}

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useTheme, type Theme } from '../context/ThemeContext'
 
 const THEME_LABELS: Record<Theme, string> = {
@@ -43,18 +43,37 @@ function SparkleIcon() {
 
 export default function ThemeButton() {
   const { theme, toggleDark, surprise } = useTheme()
-  const [hovered, setHovered] = useState(false)
+  const [expanded, setExpanded] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
   const isDark = theme !== 'light'
+
+  // Close on outside click/tap (for mobile)
+  useEffect(() => {
+    if (!expanded) return
+    function handleClick(e: MouseEvent | TouchEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setExpanded(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    document.addEventListener('touchstart', handleClick)
+    return () => {
+      document.removeEventListener('mousedown', handleClick)
+      document.removeEventListener('touchstart', handleClick)
+    }
+  }, [expanded])
 
   return (
     <div
+      ref={ref}
       className="relative"
       style={{ height: 36 }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={() => setExpanded(true)}
+      onMouseLeave={() => setExpanded(false)}
     >
       {/* Collapsed state — single pill with icon + label */}
       <div
+        onClick={() => setExpanded(!expanded)}
         style={{
           position: 'absolute',
           top: 0,
@@ -74,11 +93,11 @@ export default function ThemeButton() {
           letterSpacing: '0.1em',
           textTransform: 'uppercase' as const,
           whiteSpace: 'nowrap' as const,
-          cursor: 'default',
-          opacity: hovered ? 0 : 1,
-          transform: hovered ? 'scale(0.9)' : 'scale(1)',
+          cursor: 'pointer',
+          opacity: expanded ? 0 : 1,
+          transform: expanded ? 'scale(0.9)' : 'scale(1)',
           transition: 'opacity 0.2s ease, transform 0.2s ease',
-          pointerEvents: hovered ? 'none' as const : 'auto' as const,
+          pointerEvents: expanded ? 'none' as const : 'auto' as const,
         }}
       >
         {isDark ? <SunIcon /> : <MoonIcon />}
@@ -100,14 +119,14 @@ export default function ThemeButton() {
           background: 'var(--card-bg)',
           backdropFilter: 'blur(8px)',
           overflow: 'hidden',
-          opacity: hovered ? 1 : 0,
-          transform: hovered ? 'scale(1)' : 'scale(0.9)',
+          opacity: expanded ? 1 : 0,
+          transform: expanded ? 'scale(1)' : 'scale(0.9)',
           transition: 'opacity 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)',
-          pointerEvents: hovered ? 'auto' as const : 'none' as const,
+          pointerEvents: expanded ? 'auto' as const : 'none' as const,
         }}
       >
         <button
-          onClick={toggleDark}
+          onClick={() => { toggleDark(); setExpanded(false) }}
           title={isDark ? 'Light mode' : 'Dark mode'}
           aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
           style={{
@@ -143,7 +162,7 @@ export default function ThemeButton() {
         <div style={{ width: 1, height: 18, background: 'var(--border)', flexShrink: 0 }} />
 
         <button
-          onClick={surprise}
+          onClick={() => { surprise(); setExpanded(false) }}
           title="Surprise me with a random theme"
           aria-label="Surprise me with a random theme"
           style={{

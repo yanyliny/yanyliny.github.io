@@ -344,7 +344,7 @@ export default function Projects() {
       {/* Elegant Header */}
       <div className="mb-20 text-center">
         <div className="inline-block">
-          <h1 className="text-6xl font-extralight mb-4 tracking-tight">Projects</h1>
+          <h1 className="text-4xl md:text-6xl font-extralight mb-4 tracking-tight">Projects</h1>
           <div className="h-px" style={{ background: `linear-gradient(to right, transparent, var(--divider), transparent)` }} />
           <p className="mt-4 text-sm font-light tracking-wide" style={{ color: 'var(--text-secondary)' }}>
             Selected works as first author / lead investigator
@@ -395,14 +395,14 @@ export default function Projects() {
               >
                 {/* Header Bar */}
                 <div
-                  className="px-10 py-6"
+                  className="px-5 py-4 md:px-10 md:py-6"
                   style={{
                     background: `linear-gradient(to right, var(--bg-secondary), var(--card-bg-solid))`,
                     borderBottom: '1px solid var(--border-subtle)',
                   }}
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-4 mb-4">
-                    <h2 className="text-2xl font-light leading-tight max-w-3xl">
+                    <h2 className="text-lg md:text-2xl font-light leading-tight max-w-3xl">
                       {project.link ? (
                         <a
                           href={project.link}
@@ -454,7 +454,7 @@ export default function Projects() {
                 </div>
 
                 {/* Content */}
-                <div className="px-10 py-8">
+                <div className="px-5 py-6 md:px-10 md:py-8">
                   {/* Summary Section */}
                   <div className="mb-8 pb-8" style={{ borderBottom: '1px solid var(--border-subtle)' }}>
                     <div className="flex items-center gap-3 mb-4">
